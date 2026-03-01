@@ -1,0 +1,85 @@
+:root {
+    --color-kokuo1: #F97316;
+    --color-kokuo2: #8B4513;
+    --color-kokuo3: #EC4899;
+    --color-kokuo4: #EF4444;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+.pixel-font {
+    font-family: 'DotGothic16', sans-serif;
+}
+
+/* 各セクションの背景設定 */
+.section-bg {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 2rem 1rem;
+}
+
+/* スマホ表示時の背景固定解除（上の隙間対策） */
+@media (max-width: 768px) {
+    .section-bg {
+        background-attachment: scroll;
+        background-position: center center;
+    }
+}
+
+/* オーバーレイで文字を見やすく */
+.section-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.content-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* マイクラ風ボタン */
+.mc-btn {
+    background: #538d3d;
+    border-bottom: 6px solid #2e5120;
+    color: white;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.1s;
+}
+
+.mc-btn:active {
+    transform: translateY(4px);
+    border-bottom-width: 2px;
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
