@@ -87,3 +87,22 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- モバイル・タブレットのパララックス時のアドレスバーによる背景ジャンプ対策 --- */
+@media (max-width: 1024px) {
+    .section-bg {
+        /* コンテナの高さがアドレスバーの有無で伸縮しないように固定化 */
+        min-height: 100vh;
+        /* fallback */
+        min-height: 100svh;
+
+        /* 画面下部が拡張された際に画像位置がズレないよう基準を上に固定 */
+        background-position: top center;
+
+        /* 'cover'指定だと画面の高さ変化に伴い画像サイズが再計算・拡大縮小されてしまうため、
+           常に最大の画面縦幅(lvh)を基準にサイズを固定化してジャンプを防ぎます */
+        background-size: max(100vw, 200vh) auto;
+        /* fallback */
+        background-size: max(100vw, 200lvh) auto;
+    }
+}
